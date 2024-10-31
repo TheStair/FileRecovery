@@ -11,7 +11,6 @@
 
 import os
 import sys
-import shutil
 import hashlib
 import struct
 
@@ -26,13 +25,16 @@ import struct
 #Dictionary Structure, 'fileType': (file start signature, EOF marker)
 file_signatures = {
     'pdf': (b'\x25\x50\x44\x46',b'\x25\x25\x45\x4f\x46'),
-    'gif': (b'\x47\x49\x46', b'\x00\x3b'),
+    'gif': (b'\x47\x49\x46\x38', b'\x00\x3b'),
     'jpg': (b'\xff\xd8\xff', b'\xff\xd9'),
-    'png': (b'\x80\x50\x4e\x47\x0d\x0a\x1a\x0a', b'\x49\x45\x4e\x44\xae\x42\x60\x82'),
+    'png': (b'\x89\x50\x4e\x47', b'\x49\x45\x4e\x44\xae\x42\x60\x82'),
     'avi': (b'\x52\x49\x46\x46', b'\x00\x00') #Placeholder, AVI file size is 4 bytes LE after sig
 }
 
-
+def calculate_sha256(data):
+    sha256_hash = hashlib.sha256()
+    sha256_hash.update(data)
+    return sha256_hash.hexdigest()
 
 def carve_files(disk_image, signatures):
     with open(disk_image, 'rb') as f:
@@ -55,7 +57,7 @@ def carve_files(disk_image, signatures):
 
             # If the start position exists within the disk
             if start_pos != -1:
-                print("Searching for Filetype: " + file_type)
+                # print("Searching for Filetype: " + file_type)
 
                 # File end position temporarily held just after the signature
                 end_pos = start_pos + len(start_sig)
@@ -77,11 +79,13 @@ def carve_files(disk_image, signatures):
                         # Ensure that the end position exists in the file
                         if end_pos <= disk_length:
                             file_data = data[start_pos:end_pos]
+                            file_hash = calculate_sha256(file_data)
                             recovered_files.append({
                                 "type": file_type,
                                 "start_offset": start_pos,
                                 "end_offset": end_pos,
-                                "data": file_data
+                                "data": file_data,
+                                "hash": file_hash
                             })
                             start_pos = end_pos  # Move start_pos to end of current file to continue searching
                         else:
@@ -93,17 +97,19 @@ def carve_files(disk_image, signatures):
 
                 # For other file types with an end signature
                 else:
-                    print("found " + file_type + " file")
+                    # print("found " + file_type + " file")
                     end_pos = data.find(end_sig, start_pos)
                     if end_pos != -1:
                         if end_pos != start_pos+ len(start_sig):
                             end_pos += len(end_sig)  # Include the EOF signature in the file
                             file_data = data[start_pos:end_pos]
+                            file_hash = calculate_sha256(file_data)
                             recovered_files.append({
                                 "type": file_type,
                                 "start_offset": start_pos,
                                 "end_offset": end_pos,
-                                "data": file_data
+                                "data": file_data,
+                                "hash": file_hash
                             })
                         start_pos = end_pos  # Move start_pos to end of current file to continue searching
                     else:
@@ -111,25 +117,29 @@ def carve_files(disk_image, signatures):
                         start_pos += len(start_sig)  # Increment start_pos to avoid infinite loop
 
             else:
-                print("Did not find any" + file_type + " files")
+                #print("Did not find any" + file_type + " files")
                 break  # Exit loop if start signature is not found
 
     # Display recovered file information
+    print("The disk image contains " + str(len(recovered_files)) + " files")
     index = 1
     for file in recovered_files:
         file_path = os.path.join(output_folder, f"recovered_{index}.{file['type'].lower()}")
         with open(file_path, "wb") as out_file:
             out_file.write(file['data'])
         index += 1
-        print(f"Saved {file['type']} file from {file['start_offset']} to {file['end_offset']} at {file_path}")
+        print(f"Saved recovered_file{index}.{file['type']}, Start Offset {hex(file['start_offset'])}"
+              f", End Offset {hex(file['end_offset'])} \n SHA-256: {file['hash']}")
+
+    print(f"\nRecovered Files are located in {os.path.abspath(output_folder)}")
 
 if __name__ == '__main__':
-    #if len(sys.argv) < 2:
-        #print("Please enter a disk image to analyze.")
-        #sys.exit(1)
+    if len(sys.argv) < 2:
+        print("Please enter a disk image to analyze.")
+        sys.exit(1)
 
-    disk_image = "Project3.dd"
-    carve_files(disk_image, file_signatures)
-    #carve_files(sys.argv[1], file_signatures)
+    #disk_image = "Project3.dd"
+    #carve_files(disk_image, file_signatures)
+    carve_files(sys.argv[1], file_signatures)
 
 
