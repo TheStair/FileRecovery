@@ -25,7 +25,7 @@ import struct
 #Dictionary Structure, 'fileType': (file start signature, EOF marker)
 file_signatures = {
     'pdf': (b'\x25\x50\x44\x46',b'\x25\x25\x45\x4f\x46'),
-    'gif': (b'\x47\x49\x46\x38', b'\x00\x3b'),
+    'gif': (b'\x47\x49\x46\x38', b'\x00\x3b\x00\x00'),
     'jpg': (b'\xff\xd8\xff', b'\xff\xd9'),
     'png': (b'\x89\x50\x4e\x47', b'\x49\x45\x4e\x44\xae\x42\x60\x82'),
     'avi': (b'\x52\x49\x46\x46', b'\x00\x00') #Placeholder, AVI file size is 4 bytes LE after sig
@@ -104,6 +104,9 @@ def carve_files(disk_image, signatures):
                     if end_pos != -1:
                         if end_pos != start_pos+ len(start_sig):
                             end_pos += len(end_sig)  # Include the EOF signature in the file
+                            if file_type == 'gif':
+                                end_pos = end_pos - 2
+
                             file_data = data[start_pos:end_pos]
                             file_hash = calculate_sha256(file_data)
 

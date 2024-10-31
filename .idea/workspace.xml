@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="Finished, I think">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="Added a comment">
       <change beforePath="$PROJECT_DIR$/FileRecovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileRecovery.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +122,7 @@
       <updated>1730150961403</updated>
       <workItem from="1730150966979" duration="222000" />
       <workItem from="1730151438810" duration="7235000" />
-      <workItem from="1730316242829" duration="11494000" />
+      <workItem from="1730316242829" duration="12240000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -173,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730340492972</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a comment">
+      <option name="closed" value="true" />
+      <created>1730340833018</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730340833018</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +203,8 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="Almost done" />
     <MESSAGE value="Finished, I think" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished, I think" />
+    <MESSAGE value="Added a comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a comment" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project4$FileRecovery.coverage" NAME="FileRecovery Coverage Results" MODIFIED="1730340293917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
