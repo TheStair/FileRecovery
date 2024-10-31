@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="Added a comment">
-      <change beforePath="$PROJECT_DIR$/FileRecovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileRecovery.py" afterDir="false" />
-    </list>
+    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="fixed gif" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +120,7 @@
       <updated>1730150961403</updated>
       <workItem from="1730150966979" duration="222000" />
       <workItem from="1730151438810" duration="7235000" />
-      <workItem from="1730316242829" duration="12240000" />
+      <workItem from="1730316242829" duration="12667000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -180,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730340833018</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed gif">
+      <option name="closed" value="true" />
+      <created>1730348043436</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730348043436</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,9 +210,10 @@
     <MESSAGE value="Almost done" />
     <MESSAGE value="Finished, I think" />
     <MESSAGE value="Added a comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a comment" />
+    <MESSAGE value="fixed gif" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed gif" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Project4$FileRecovery.coverage" NAME="FileRecovery Coverage Results" MODIFIED="1730340293917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project4$FileRecovery.coverage" NAME="FileRecovery Coverage Results" MODIFIED="1730347990484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
