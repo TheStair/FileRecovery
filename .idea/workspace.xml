@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="Almost done">
+    <list default="true" id="03a1ba1e-471e-496a-987a-dbbf15df9160" name="Changes" comment="Finished, I think">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileRecovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileRecovery.py" afterDir="false" />
     </list>
@@ -123,7 +123,7 @@
       <updated>1730150961403</updated>
       <workItem from="1730150966979" duration="222000" />
       <workItem from="1730151438810" duration="7235000" />
-      <workItem from="1730316242829" duration="10996000" />
+      <workItem from="1730316242829" duration="11494000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730333073117</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished, I think">
+      <option name="closed" value="true" />
+      <created>1730340492972</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730340492972</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,33 +195,8 @@
     <MESSAGE value="Defined Dictionary and a few more things" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="Almost done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost done" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FileRecovery.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FileRecovery.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FileRecovery.py</url>
-          <line>99</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FileRecovery.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Finished, I think" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished, I think" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project4$FileRecovery.coverage" NAME="FileRecovery Coverage Results" MODIFIED="1730340293917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

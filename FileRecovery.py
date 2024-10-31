@@ -80,6 +80,8 @@ def carve_files(disk_image, signatures):
                         if end_pos <= disk_length:
                             file_data = data[start_pos:end_pos]
                             file_hash = calculate_sha256(file_data)
+
+                            #store files in a dictionary to be referenced later
                             recovered_files.append({
                                 "type": file_type,
                                 "start_offset": start_pos,
@@ -104,6 +106,8 @@ def carve_files(disk_image, signatures):
                             end_pos += len(end_sig)  # Include the EOF signature in the file
                             file_data = data[start_pos:end_pos]
                             file_hash = calculate_sha256(file_data)
+
+                            # store files in a dictionary to be referenced later
                             recovered_files.append({
                                 "type": file_type,
                                 "start_offset": start_pos,
