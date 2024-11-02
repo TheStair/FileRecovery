@@ -20,7 +20,7 @@ import struct
 #I originally planned to utilize defined variables, but after consideration, a dictionary is a better
 # way to structure the file signatures
 
-# I used the internet to figure out how to define byte literals in python. (the \x)
+# I used the ChatGPT to figure out how to define byte literals in python (the \x), and to brainstorm an approach
 
 #Dictionary Structure, 'fileType': (file start signature, EOF marker)
 file_signatures = {
@@ -31,16 +31,22 @@ file_signatures = {
     'avi': (b'\x52\x49\x46\x46', b'\x00\x00') #Placeholder, AVI file size is 4 bytes LE after sig
 }
 
+#Specifies the name of the output folder
+output_folder = "recovered_files"
+
+#Accepts an input and returns the hash in hexadecimal format
 def calculate_sha256(data):
     sha256_hash = hashlib.sha256()
     sha256_hash.update(data)
     return sha256_hash.hexdigest()
 
+#Accepts a disk image and a dictionary of signatures
+#Writes out carved files into output_folder and prints results
 def carve_files(disk_image, signatures):
     with open(disk_image, 'rb') as f:
         data = f.read()
 
-    output_folder = "recovered_files"
+    #Make output folder
     os.makedirs(output_folder, exist_ok=True)
 
     disk_length = len(data)
@@ -128,15 +134,25 @@ def carve_files(disk_image, signatures):
                 break  # Exit loop if start signature is not found
 
     # Display recovered file information
-    print("The disk image contains " + str(len(recovered_files)) + " files")
+    print("The disk image contains " + str(len(recovered_files)) + " files\n")
+
+    #Index used to name files
     index = 1
+
+    #Iterate through recovered_files dictionary
     for file in recovered_files:
+
+        #Get the full path for the current directory, add the output directory, and add the file name
         file_path = os.path.join(output_folder, f"recovered_{index}.{file['type'].lower()}")
+
+        #Write the current file's data to the path above
         with open(file_path, "wb") as out_file:
             out_file.write(file['data'])
-        index += 1
+
         print(f"Saved recovered_file{index}.{file['type']}, Start Offset {hex(file['start_offset'])}"
               f", End Offset {hex(file['end_offset'])} \n SHA-256: {file['hash']}")
+
+        index += 1
 
     print(f"\nRecovered Files are located in {os.path.abspath(output_folder)}")
 
